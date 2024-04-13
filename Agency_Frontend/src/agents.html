@@ -1,0 +1,70 @@
+{% set title = 'Agents' %} {% set filename = 'agents' %} {% block styles %}
+<link rel="stylesheet" href="assets/scss/iconly.scss" />
+{% endblock %} {% extends 'src/layouts/header.html' %} {% block content %}
+<div class="page-content">
+  <div class="page-title mb-4">
+    <div class="row">
+      <div class="col-12 col-md-6 order-md-1 order-last">
+        <h3>Agents</h3>
+      </div>
+      <div class="col-12 col-md-6 order-md-2 order-first">
+        <nav
+          aria-label="breadcrumb"
+          class="breadcrumb-header float-start float-lg-end"
+        >
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">ResQ</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Agents</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <div class="col-12">
+    <div class="card">
+      <div class="card-header d-flex justify-content-evenly">
+        <h3 class="card-title col-12 col-md-8">Agency Agents List</h3>
+        <a href="/add-agent.html" class="btn btn-primary col-12 col-md-1"
+          >Add Agent</a
+        >
+        <div class="col-12 col-md-2">
+          <div class="input-group">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Search"
+              aria-label="Search"
+              aria-describedby="basic-addon1"
+            />
+            <span class="input-group-text" id="basic-addon1"
+              ><i class="bi bi-search mb-2"></i
+            ></span>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-hover table-xl">
+              <thead>
+                <tr>
+                  <th>Agent Id</th>
+                  <th>Agent Name</th>
+                  <th>Agent Role</th>
+                  <th>Agent Status</th>
+                  <th>Agent Email</th>
+                  <th>Agent Assignment</th>
+                  <th>Edit Fields</th>
+                </tr>
+              </thead>
+              <tbody id="agentsTable"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endblock %} {% block js %}
+  <script src="assets/static/js/pages/agents.js"></script>
+  {% endblock %}
+</div>

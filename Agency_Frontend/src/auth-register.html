@@ -1,0 +1,239 @@
+{% set title = 'Register' %} {% extends 'src/layouts/auth.html' %} {% block
+content %}
+<div class="row h-100">
+  <div class="col-lg-5 col-12">
+    <div id="auth-left">
+      <div class="auth-logo m-0">
+        <a href="index.html">
+          <img
+            src="assets/static/images/logo/logo.png"
+            style="width: 150px; height: 150px"
+            alt="Logo"
+          />
+        </a>
+      </div>
+      <h1 class="auth-title">Sign Up</h1>
+      <p class="auth-subtitle mb-5">
+        Input your data to register to our website.
+      </p>
+
+      <form>
+        <div class="form-group position-relative has-icon-left mb-4">
+          <select
+            class="choices form-control form-control-xl"
+            placeholder="Agency Type"
+            required
+            id="inputAgencyType"
+          >
+            <option class="disabled">Select Agency Type</option>
+            <option value="NDRF">National Disaster Response Force</option>
+            <option value="SDRF">State Disaster Response Force</option>
+            <option value="DDMT">District Disaster Management Team</option>
+            <option value="ULB">Urban Local Body</option>
+            <option value="Fire">Fire and Emergency Service</option>
+            <option value="Health">Health and Medical Team</option>
+            <option value="CAA">Civil Aviation Authority</option>
+            <option value="ICG">Indian Coast Guard</option>
+            <option value="NGO">Non-Governmental Organization</option>
+          </select>
+        </div>
+        <div class="form-group position-relative has-icon-left mb-4">
+          <input
+            type="text"
+            class="form-control form-control-xl"
+            placeholder="Agency ID"
+            id="inputAgencyID"
+          />
+          <div class="form-control-icon">
+            <i class="bi bi-person-badge"></i>
+          </div>
+        </div>
+        <div class="form-group position-relative has-icon-left mb-4">
+          <input
+            type="text"
+            class="form-control form-control-xl"
+            placeholder="Agency Name"
+            id="inputAgencyName"
+            required
+          />
+          <div class="form-control-icon">
+            <i class="bi bi-person"></i>
+          </div>
+        </div>
+        <div class="form-group position-relative has-icon-left mb-4">
+          <input
+            type="text"
+            class="form-control form-control-xl"
+            placeholder="Email"
+            id="inputAgencyEmail"
+            required
+          />
+          <div class="form-control-icon">
+            <i class="bi bi-envelope"></i>
+          </div>
+        </div>
+        <div class="form-group position-relative has-icon-left mb-4">
+          <input
+            type="number"
+            class="form-control form-control-xl"
+            placeholder="Phone Number"
+            id="inputAgencyMobile"
+            required
+          />
+          <div class="form-control-icon">
+            <i class="bi bi-telephone"></i>
+          </div>
+        </div>
+        <div class="form-group position-relative has-icon-left mb-4">
+          <select
+            type="text"
+            class="choices form-control form-control-xl"
+            placeholder="State"
+            id="inputState"
+            required
+          >
+            <optgroup label="States">
+              <option class="disabled">Select State</option>
+              <option value="Andra Pradesh">Andra Pradesh</option>
+              <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+              <option value="Assam">Assam</option>
+              <option value="Bihar">Bihar</option>
+              <option value="Chhattisgarh">Chhattisgarh</option>
+              <option value="Goa">Goa</option>
+              <option value="Gujarat">Gujarat</option>
+              <option value="Haryana">Haryana</option>
+              <option value="Himachal Pradesh">Himachal Pradesh</option>
+              <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+              <option value="Jharkhand">Jharkhand</option>
+              <option value="Karnataka">Karnataka</option>
+              <option value="Kerala">Kerala</option>
+              <option value="Madya Pradesh">Madya Pradesh</option>
+              <option value="Maharashtra">Maharashtra</option>
+              <option value="Manipur">Manipur</option>
+              <option value="Meghalaya">Meghalaya</option>
+              <option value="Mizoram">Mizoram</option>
+              <option value="Nagaland">Nagaland</option>
+              <option value="Orissa">Orissa</option>
+              <option value="Punjab">Punjab</option>
+              <option value="Rajasthan">Rajasthan</option>
+              <option value="Sikkim">Sikkim</option>
+              <option value="Tamil Nadu">Tamil Nadu</option>
+              <option value="Telangana">Telangana</option>
+              <option value="Tripura">Tripura</option>
+              <option value="Uttaranchal">Uttaranchal</option>
+              <option value="Uttar Pradesh">Uttar Pradesh</option>
+              <option value="West Bengal">West Bengal</option>
+            </optgroup>
+            <optgroup label="Union Territories">
+              <option value="Andaman and Nicobar Islands">
+                Andaman and Nicobar Islands
+              </option>
+              <option value="Chandigarh">Chandigarh</option>
+              <option value="Dadar and Nagar Haveli">
+                Dadar and Nagar Haveli
+              </option>
+              <option value="Daman and Diu">Daman and Diu</option>
+              <option value="Delhi">Delhi</option>
+              <option value="Lakshadeep">Lakshadeep</option>
+              <option value="Pondicherry">Pondicherry</option>
+            </optgroup>
+          </select>
+          <div class="form-control-icon">
+            <i class="bi bi-geo-alt"></i>
+          </div>
+        </div>
+        <div class="form-group position-relative mb-4">
+          <select
+            type="text"
+            class="form-control form-control-l"
+            placeholder="District"
+            id="inputDistrict"
+          >
+            <option class="disabled">Select District</option>
+          </select>
+        </div>
+        <div class="form-group position-relative has-icon-left mb-4">
+          <input
+            type="number"
+            class="form-control form-control-xl"
+            placeholder="Pin Code"
+            id="inputPincode"
+            required
+          />
+          <div class="form-control-icon">
+            <i class="bi bi-geo-alt"></i>
+          </div>
+        </div>
+        <div class="form-group position-relative has-icon-left mb-4">
+          <input
+            type="password"
+            class="form-control form-control-xl"
+            placeholder="Password"
+            id="inputPassword"
+            required
+          />
+          <div class="form-control-icon">
+            <i class="bi bi-shield-lock"></i>
+          </div>
+        </div>
+        <div class="form-group position-relative has-icon-left mb-4">
+          <input
+            type="password"
+            class="form-control form-control-xl"
+            placeholder="Confirm Password"
+            id="inputConfirmPassword"
+            required
+          />
+          <div class="form-control-icon">
+            <i class="bi bi-shield-lock"></i>
+          </div>
+        </div>
+        <div class="form-group position-relative has-icon-left mb-4">
+          <div class="col-12 d-flex justify-content-start align-items-start">
+            <input
+              type="checkbox"
+              id="lCheckbox"
+              class="form-check-input"
+              style="margin-right: 5px"
+              required
+            />
+            <label for="lCheckbox"
+              >Save current location as Agency Location</label
+            >
+          </div>
+        </div>
+        <a
+          class="btn btn-primary btn-block btn-lg shadow-lg mt-5"
+          id="register"
+        >
+          Sign Up
+        </a>
+      </form>
+      <div class="text-center mt-5 text-lg fs-4">
+        <p class="text-gray-600">
+          Already have an account?
+          <a href="auth-login.html" class="font-bold">Log in</a>.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-7 d-none d-lg-block">
+    <div id="auth-right"></div>
+  </div>
+</div>
+{% block stylesfirst %}
+<link
+  rel="stylesheet"
+  href="assets/extensions/choices.js/public/assets/styles/choices.css"
+/>
+{% endblock %} {% block js %}
+<script src="assets/extensions/choices.js/public/assets/scripts/choices.js"></script>
+<script
+  src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+  crossorigin="anonymous"
+></script>
+<script src="assets/static/js/pages/stateForm.js"></script>
+<script src="assets/static/js/pages/register.js"></script>
+
+{% endblock %} {% endblock %}

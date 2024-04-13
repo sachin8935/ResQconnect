@@ -1,0 +1,136 @@
+{% set title = 'Agents' %} {% set filename = 'agents' %} {% block styles %}
+<link rel="stylesheet" href="assets/scss/iconly.scss" />
+<link
+  href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css"
+  rel="stylesheet"
+/>
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
+{% endblock %} {% extends 'src/layouts/header.html' %} {% block content %}
+<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css"
+  type="text/css"
+/>
+<div class="page-content">
+  <div class="page-title mb-4">
+    <div class="row">
+      <div class="col-12 col-md-6 order-md-1 order-last">
+        <h3>Agents</h3>
+      </div>
+      <div class="col-12 col-md-6 order-md-2 order-first">
+        <nav
+          aria-label="breadcrumb"
+          class="breadcrumb-header float-start float-lg-end"
+        >
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">ResQ</a></li>
+            <li class="breadcrumb-item"><a href="agents.html">Agents</a></li>
+            <li class="breadcrumb-item active" aria-current="page">
+              Create Agent
+            </li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <section class="form card">
+    <div class="row p-5 justify-content-evenly">
+      <div class="msg"></div>
+      <div class="col-md-6 col-12">
+        <div class="form-group">
+          <label for="agentName">Agent Name</label>
+          <input
+            type="text"
+            id="agentName"
+            class="form-control form-select form-select-lg"
+            placeholder="Agent Name"
+          />
+        </div>
+      </div>
+      <div class="col-md-6 col-12">
+        <div class="form-group">
+          <label for="agentRole">Agent Position</label>
+          <input
+            type="text"
+            id="agentRole"
+            class="form-control form-select form-select-lg"
+            placeholder="Agent Position"
+          />
+        </div>
+      </div>
+      <div class="col-md-6 col-12">
+        <div class="form-group">
+          <label for="agentID">Agent Id</label>
+          <input
+            type="text"
+            id="agentID"
+            class="form-control form-select form-select-lg"
+            placeholder="Agent Id"
+          />
+        </div>
+      </div>
+      <div class="col-md-6 col-12">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="text"
+            id="email"
+            class="form-control form-select form-select-lg"
+            placeholder="Email"
+          />
+        </div>
+      </div>
+      <div class="col-md-6 col-12">
+        <div class="form-group">
+          <label for="phoneNumber">Phone Number</label>
+          <input
+            type="text"
+            id="phoneNumber"
+            class="form-control form-select form-select-lg"
+            placeholder="Phone Number"
+          />
+        </div>
+      </div>
+      <div class="col-md-6 col-12">
+        <div class="form-group">
+          <label for="agentDescription">Agent Description</label>
+          <input
+            type="email"
+            id="agentDescription"
+            class="form-control form-select form-select-lg"
+            placeholder="Agent Description"
+          />
+        </div>
+      </div>
+      <div class="form-group col-12">
+        <div class="form-check">
+          <div class="checkbox">
+            <input
+              checked
+              disabled
+              type="checkbox"
+              id="checkbox5"
+              class="form-check-input"
+            />
+            <label for="checkbox5"
+              >Save Default Location as same as the Agency.</label
+            >
+          </div>
+        </div>
+      </div>
+      <div class="col-12 d-flex justify-content-end">
+        <a id="submit" class="btn btn-primary me-1 mb-1">Submit</a>
+        <a id="reset" class="btn btn-light-secondary me-1 mb-1"> Reset </a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div id="map" style="width: 100%; height: 400px"></div>
+      </div>
+    </div>
+  </section>
+</div>
+{% endblock %} {% block js %}
+<script src="assets/static/js/pages/add-agent.js"></script>
+{% endblock %}

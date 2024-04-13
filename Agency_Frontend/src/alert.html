@@ -1,0 +1,357 @@
+{% set title = 'Alert' %} {% set filename = 'alert' %} {% block styles %}
+<link rel="stylesheet" href="../assets/scss/iconly.scss" />
+<link
+  href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css"
+  rel="stylesheet"
+/>
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
+{% endblock %} {% extends 'src/layouts/header.html' %} {% block content %}
+<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css"
+  type="text/css"
+/>
+<style>
+  .coordinates {
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    position: absolute;
+    bottom: 270px;
+    right: 35px;
+    padding: 5px 10px;
+    margin: 0;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 5px;
+    display: none;
+  }
+</style>
+<div class="page-content">
+  <div class="page-title">
+    <div class="row">
+      <div class="col-12 col-md-6 order-md-1 order-last">
+        <h2>Create Alert</h2>
+      </div>
+      <div class="col-12 col-md-6 order-md-2 order-first">
+        <nav
+          aria-label="breadcrumb"
+          class="breadcrumb-header float-start float-lg-end"
+        >
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">ResQ</a></li>
+            <li class="breadcrumb-item" aria-current="page">
+              <a href="incidents.html">Incidents</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">Alert</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <section id="multiple-column-form ">
+    <div class="row match-height">
+      <div class="col-12">
+        <div class="card mb-4">
+          <div class="card-header">
+            <h3 class="card-title">Fill the required details below.</h3>
+          </div>
+          <div class="card-body">
+            <form class="form" data-parsley-validate>
+              <div class="row">
+                <label for="incident-id" class="form-label"> Alert ID </label>
+                <input
+                  type="text"
+                  id="incident-id"
+                  class="form-control"
+                  placeholder="Enter the ID of the incident"
+                  required
+                  data-parsley-required="true"
+                  data-parsley-trigger="change"
+                />
+                <div class="col-md-6 col-12">
+                  <div class="form-group">
+                    <label for="incident-type" class="form-label">
+                      Alert Type
+                    </label>
+                    <select
+                      class="choices form-select"
+                      id="incident-type"
+                      required
+                      data-parsley-required="true"
+                      data-parsley-trigger="change"
+                    >
+                      <optgroup label="Natural Disasters">
+                        <option value="earthquake">Earthquake</option>
+                        <option value="hurricane">
+                          Hurricane/Typhoon/Cyclone
+                        </option>
+                        <option value="tornado">Tornado</option>
+                        <option value="flood">Flood</option>
+                        <option value="tsunami">Tsunami</option>
+                        <option value="wildfire">Wildfire</option>
+                        <option value="drought">Drought</option>
+                        <option value="landslide">Landslide</option>
+                        <option value="volcanic">Volcanic Eruption</option>
+                        <option value="avalanche">Avalanche</option>
+                        <option value="heatwave">Extreme Heat Wave</option>
+                        <option value="coldwave">Extreme Cold Wave</option>
+                        <option value="hailstorm">Hailstorm</option>
+                        <option value="epidemic">Epidemic/Pandemic</option>
+                      </optgroup>
+                      <optgroup label="Technological and Man-Made Incidents">
+                        <option value="industrial">Industrial Accidents</option>
+                        <option value="hazardous">
+                          Hazardous Material Spill
+                        </option>
+                        <option value="nuclear">Nuclear Accident</option>
+                        <option value="chemical">Chemical Explosion</option>
+                        <option value="radiological">
+                          Radiological Incident
+                        </option>
+                        <option value="biological">Biological Incident</option>
+                        <option value="cybersecurity">
+                          Cybersecurity Breach
+                        </option>
+                        <option value="transportation">
+                          Transportation Accidents
+                        </option>
+                        <option value="infrastructure">
+                          Infrastructure Failure
+                        </option>
+                        <option value="urbanfires">Urban Fires</option>
+                        <option value="terrorism">Terrorism</option>
+                        <option value="civilunrest">
+                          Civil Unrest/Civil Disturbance
+                        </option>
+                        <option value="massgatherings">
+                          Mass Gatherings/Events
+                        </option>
+                        <option value="oilspill">Oil Spill</option>
+                      </optgroup>
+                      <optgroup label="Health Emergencies">
+                        <option value="infectiousdisease">
+                          Outbreak of Infectious Diseases
+                        </option>
+                        <option value="publichealth">
+                          Public Health Emergency
+                        </option>
+                        <option value="medicalemergency">
+                          Medical Emergency
+                        </option>
+                        <option value="biologicalcontamination">
+                          Biological Contamination
+                        </option>
+                      </optgroup>
+                      <optgroup label="Environmental Incidents">
+                        <option value="oilspills">Oil Spills</option>
+                        <option value="pollution">Pollution</option>
+                        <option value="toxicwaste">Toxic Waste Dumping</option>
+                      </optgroup>
+                      <optgroup label="Geological Events">
+                        <option value="sinkhole">Sinkhole</option>
+                        <option value="subsidence">Subsidence</option>
+                      </optgroup>
+                      <optgroup label="Meteorological Events">
+                        <option value="hailstorm">Hailstorm</option>
+                        <option value="blizzard">Blizzard</option>
+                        <option value="tornado">Tornado</option>
+                      </optgroup>
+                      <optgroup label="Social and Humanitarian Crises">
+                        <option value="refugeecrisis">Refugee Crisis</option>
+                        <option value="foodcrisis">Food Crisis</option>
+                        <option value="watercrisis">Water Crisis</option>
+                        <option value="homelessness">
+                          Homelessness Crisis
+                        </option>
+                      </optgroup>
+                      <optgroup label="Other Incidents">
+                        <option value="searchrescue">
+                          Search and Rescue Operation
+                        </option>
+                        <option value="animalcontrol">
+                          Animal Control/Rescue
+                        </option>
+                        <option value="utilityoutage">Utility Outage</option>
+                      </optgroup>
+                      <optgroup label="Other/Unknown">
+                        <option value="other">Other/Unknown</option>
+                      </optgroup>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-6 col-12">
+                  <div class="form-group">
+                    <label for="incident-location" class="form-label">
+                      Alert Location
+                    </label>
+                    <input
+                      type="text"
+                      id="incident-location"
+                      class="form-control"
+                      placeholder="Enter the location of the incident"
+                      required
+                      data-parsley-required="true"
+                      data-parsley-trigger="change"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 col-12">
+                  <div class="form-group">
+                    <label for="incident-longtitude" class="form-label">
+                      Longtitude
+                    </label>
+                    <input
+                      type="number"
+                      id="incident-longtitude"
+                      class="form-control"
+                      placeholder="Enter the longtitude of the incident"
+                      required
+                      data-parsley-required="true"
+                      data-parsley-trigger="change"
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6 col-12">
+                  <div class="form-group">
+                    <label for="incident-latitude" class="form-label">
+                      Latitude
+                    </label>
+                    <input
+                      type="number"
+                      id="incident-latitude"
+                      class="form-control"
+                      placeholder="Enter the latitude of the incident"
+                      required
+                      data-parsley-required="true"
+                      data-parsley-trigger="change"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 col-12">
+                  <div class="form-group">
+                    <label for="incident-description" class="form-label">
+                      Alert Description
+                    </label>
+                    <textarea
+                      class="form-control"
+                      id="incident-description"
+                      rows="10"
+                      placeholder="Enter the description of the incident"
+                      required
+                      data-parsley-required="true"
+                      data-parsley-trigger="change"
+                    ></textarea>
+                  </div>
+                </div>
+                <div class="col-md-6 col-12">
+                  <div
+                    id="map"
+                    class="w-100 rounded-3 accordion-flush mb-3"
+                    style="min-height: 300px"
+                  ></div>
+                  <pre id="coordinates" class="coordinates"></pre>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 col-12">
+                  <div class="form-group">
+                    <label for="incident-severity">
+                      Alert Severity Level
+                    </label>
+                    <select
+                      class="form-select"
+                      id="incident-severity"
+                      required
+                      data-parsley-required="true"
+                      data-parsley-trigger="change"
+                    >
+                      <option value="low">Low</option>
+                      <option value="medium">Medium</option>
+                      <option value="high">High</option>
+                      <option value="critical">Critical</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-6 col-12">
+                  <div class="form-group">
+                    <label for="incident date"> Alert Date and Time </label>
+                    <input
+                      type="datetime-local"
+                      id="incident-date"
+                      class="form-control"
+                      placeholder="Enter the date and time of the incident"
+                      required
+                      data-parsley-required="true"
+                      data-parsley-trigger="change"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="row mb-4">
+                <div class="col-md-6 col-12">
+                  <div class="form-group">
+                    <label for="reporter-name" class="form-label">
+                      Informant Name
+                    </label>
+                    <input
+                      type="text"
+                      id="reporter-name"
+                      class="form-control"
+                      placeholder="Enter the name of the informant"
+                      required
+                      data-parsley-required="true"
+                      data-parsley-trigger="change"
+                    />
+                  </div>
+                </div>
+                <div class="col-md-6 col-12">
+                  <div class="form-group">
+                    <label for="reporter-contact" class="form-label">
+                      Informant Contact
+                    </label>
+                    <input
+                      type="number"
+                      id="reporter-contact"
+                      class="form-control"
+                      placeholder="Enter the contact of the informant"
+                      required
+                      data-parsley-required="true"
+                      data-parsley-trigger="change"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12 d-flex justify-content-end">
+                  <a id="submit" class="btn btn-primary me-1 mb-1"> Submit </a>
+                  <button
+                    type="reset"
+                    class="btn btn-light-secondary me-1 mb-1"
+                  >
+                    Reset
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+{% endblock %}{% block stylesfirst %}
+<link
+  rel="stylesheet"
+  href="assets/extensions/choices.js/public/assets/styles/choices.css"
+/>
+{% endblock %} {% block js %}
+<script src="assets/extensions/jquery/jquery.min.js"></script>
+<script src="assets/extensions/choices.js/public/assets/scripts/choices.js"></script>
+<script src="assets/extensions/parsleyjs/parsley.min.js"></script>
+<script src="assets/static/js/pages/alert.js"></script>
+{% endblock %}

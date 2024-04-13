@@ -1,0 +1,43 @@
+// Import mazer Variables
+@import "./variables";
+
+// Bootstrap + Icons
+$bootstrap-icons-font-src: url("~bootstrap-icons/font/fonts/bootstrap-icons.woff2")
+  format("woff") !default;
+@import "~bootstrap/scss/bootstrap";
+@import "~bootstrap-icons/font/bootstrap-icons";
+
+// Fix icon placement
+body .bi::before,
+[class^="bi-"]::before,
+[class*=" bi-"]::before {
+  vertical-align: sub;
+}
+
+// Import fonts
+@import "./fonts";
+
+// Perfect Scrollbar
+@import "~perfect-scrollbar/css/perfect-scrollbar.css";
+
+// Mazer CSS
+@import "./mazer";
+
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

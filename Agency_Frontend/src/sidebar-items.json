@@ -1,0 +1,38 @@
+[
+  {
+    "id": "home",
+    "name": "Home",
+    "url": "dashboard.html",
+    "icon": "grid-fill"
+  },
+  {
+    "id": "mapTab",
+    "name": "Map",
+    "url": "map.html",
+    "icon": "map-fill"
+  },
+  {
+    "id": "icidents",
+    "name": "Incidents",
+    "url": "incidents.html",
+    "icon": "exclamation-triangle-fill"
+  },
+  {
+    "id": "agents",
+    "name": "Agents",
+    "url": "agents.html",
+    "icon": "person-fill"
+  },
+  {
+    "id": "database",
+    "name": "Resources",
+    "url": "database.html",
+    "icon": "database-fill"
+  },
+  {
+    "id": "logout",
+    "name": "Logout",
+    "url": "auth-login.html",
+    "icon": "box-arrow-right"
+  }
+]

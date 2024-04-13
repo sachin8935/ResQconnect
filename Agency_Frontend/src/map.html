@@ -1,0 +1,45 @@
+{% set title = 'Home' %} {% set filename = 'home' %} {% block styles %}
+<link rel="stylesheet" href="assets/scss/iconly.scss" />
+<link
+  href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css"
+  rel="stylesheet"
+/>
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
+{% endblock %} {% extends 'src/layouts/header.html' %} {% block content %}
+<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.js"></script>
+<link
+  rel="stylesheet"
+  href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.css"
+  type="text/css"
+/>
+<div class="page-content">
+  <div class="page-title">
+    <div class="row">
+      <div class="col-12 col-md-6 order-md-1 order-last">
+        <h3>Map</h3>
+      </div>
+      <div class="col-12 col-md-6 order-md-2 order-first">
+        <nav
+          aria-label="breadcrumb"
+          class="breadcrumb-header float-start float-lg-end"
+        >
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">ResQ</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Map</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <section class="row">
+    <div class="row">
+      <div class="col-12 col-lg-3 col-sm-3 mb-2">
+        <a onclick="" class="btn btn-primary">Change Map Style</a>
+      </div>
+    </div>
+    <div id="map" style="min-height: 750px" class="width-100 rounded-4"></div>
+  </section>
+</div>
+{% endblock %} {% block js %}
+<script src="assets/static/js/pages/map.js"></script>
+{% endblock %}
